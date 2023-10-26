@@ -5,8 +5,8 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.Style;
@@ -26,8 +26,7 @@ public class Beem implements ClientModInitializer {
 	static boolean beem = true;
 	@Override
 	public void onInitializeClient() {
-		BlockEntityRendererRegistry.INSTANCE.register(BlockEntityType.BEEHIVE, ctx -> new BeeNestBlockEntityRenderer());
-
+		BlockEntityRendererFactories.register(BlockEntityType.BEEHIVE, ctx -> new BeeNestBlockEntityRenderer());
 		KeyBindingHelper.registerKeyBinding(TOGGLE_BEEM);
 
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
