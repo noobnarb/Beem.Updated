@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "net.noobnarb.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+	],
+	"client": [
+		"BeehiveBlockEntityMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
